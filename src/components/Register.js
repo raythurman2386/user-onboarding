@@ -19,6 +19,7 @@ const Register = () => {
 }
 
 export default withFormik({
+  // Basically map props to the state
   mapPropsToValues: ({ name, email, password, tos }) => {
     return {
       name: name || '',
@@ -26,5 +27,13 @@ export default withFormik({
       password: password || '',
       tos: tos || false,
     }
+  },
+
+  // need to add validationSchema here
+
+  // handle submit
+  // axios request will go here
+  handleSubmit(values) {
+    console.log(values)
   },
 })(Register)
