@@ -18,4 +18,13 @@ const Register = () => {
   )
 }
 
-export default withFormik({})(Register)
+export default withFormik({
+  mapPropsToValues: ({ name, email, password, tos }) => {
+    return {
+      name: name || '',
+      email: email || '',
+      password: password || '',
+      tos: tos || false,
+    }
+  },
+})(Register)
