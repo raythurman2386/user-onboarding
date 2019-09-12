@@ -30,6 +30,17 @@ export default withFormik({
   },
 
   // need to add validationSchema here
+  validationSchema: Yup.object().shape({
+    name: Yup.string().required(),
+    email: Yup.string()
+      .email()
+      .required(),
+    password: Yup.string()
+      .min(6)
+      .max(20)
+      .required(),
+    tos: Yup.boolean().oneOf([true]),
+  }),
 
   // handle submit
   // axios request will go here
