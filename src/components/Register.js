@@ -3,9 +3,10 @@ import { Form, Field, withFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
-const Register = () => {
+const Register = ({ errors, touched }) => {
   return (
     <Form>
+      {touched.name && errors.name && <p>{errors.name}</p>}
       <Field type='text' name='name' placeholder='Name' />
       <Field type='email' name='email' placeholder='Email' />
       <Field type='password' name='password' placeholder='Password' />
