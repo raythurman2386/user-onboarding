@@ -3,7 +3,7 @@ import { Form, Field, withFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
-const Register = ({ errors, touched }) => {
+const Register = ({ errors, touched, status }) => {
   return (
     <Form>
       {/* Custom Name Error */}
@@ -59,7 +59,10 @@ export default withFormik({
     console.log(values)
     axios
       .post('https://reqres.in/api/users', values)
-      .then(res => console.log(res.data))
+      .then(res => {
+        console.log(res.data)
+        setStatus(res.data)
+      })
       .catch(err => console.log(err.response))
   },
 })(Register)
