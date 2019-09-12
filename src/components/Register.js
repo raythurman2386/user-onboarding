@@ -42,15 +42,15 @@ export default withFormik({
 
   // need to add validationSchema here
   validationSchema: Yup.object().shape({
-    name: Yup.string().required(),
+    name: Yup.string().required('Please provide a name'),
     email: Yup.string()
-      .email()
-      .required(),
+      .email('Email is not valid')
+      .required('Email is required'),
     password: Yup.string()
-      .min(6)
-      .max(20)
-      .required(),
-    tos: Yup.boolean().oneOf([true]),
+      .min(6, 'Password is too short')
+      .max(20, 'Password is too long')
+      .required('You must have a password'),
+    tos: Yup.boolean().oneOf([true], 'Please agree to the Terms of Service'),
   }),
 
   // handle submit
