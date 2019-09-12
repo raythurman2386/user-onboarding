@@ -8,6 +8,8 @@ const Register = ({ errors, touched }) => {
     <Form>
       {touched.name && errors.name && <p>{errors.name}</p>}
       <Field type='text' name='name' placeholder='Name' />
+
+      {touched.email && errors.email && <p>{errors.email}</p>}
       <Field type='email' name='email' placeholder='Email' />
       <Field type='password' name='password' placeholder='Password' />
       <label>
