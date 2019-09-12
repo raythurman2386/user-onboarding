@@ -10,25 +10,32 @@ import styled from 'styled-components'
 const StyledForm = styled(Form)`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 450px;
   margin: auto;
-  padding: 4rem;
-`
-
+  align-items: center;
+`;
 const StyledField = styled(Field)`
-  width: 98%;
-  padding: 0.5rem 1.2rem;
+  margin: 10px 0;
+  line-height: 2;
   border: none;
-  margin: 1.25rem auto;
-  box-shadow: 0 6px 6px #777;
-`
-
-const StyledP = styled.p`
-  margin: 0;
-  padding: 0;
-`
+  // border-radius: 8px;
+  padding: 5px 10px;
+  width: 60%;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+`;
+const ButtonWrapper = styled.button`
+  cursor: pointer;
+  margin: 10px;
+  padding: 8px 14px;
+  background-color: lightskyblue;
+  border: none;
+  box-shadow: 0 -1px 0 #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+    0 2px 4px rgba(0, 0, 0, 0.24);
+  &:hover {
+    box-shadow: 0 -1px 10px #e0e0e0, 0 0 2px rgba(0, 0, 0, 0.12),
+      0 2px 10px rgba(0, 0, 0, 0.24);
+  }
+`;
 
 const Register = ({ errors, touched, status }) => {
   // set up hooks to display data
@@ -44,26 +51,26 @@ const Register = ({ errors, touched, status }) => {
   return (
     <StyledForm>
       {/* Custom Name Error */}
-      {touched.name && errors.name && <StyledP>{errors.name}</StyledP>}
+      {touched.name && errors.name && <p>{errors.name}</p>}
       <StyledField type='text' name='name' placeholder='Name' />
 
       {/* Custom Email Error */}
-      {touched.email && errors.email && <StyledP>{errors.email}</StyledP>}
+      {touched.email && errors.email && <p>{errors.email}</p>}
       <StyledField type='email' name='email' placeholder='Email' />
 
       {/* Custom PW Error */}
       {touched.password && errors.password && (
-        <StyledP>{errors.password}</StyledP>
+        <p>{errors.password}</p>
       )}
       <StyledField type='password' name='password' placeholder='Password' />
 
       {/* Custom TOS Error */}
-      {touched.tos && errors.tos && <StyledP>{errors.tos}</StyledP>}
+      {touched.tos && errors.tos && <p>{errors.tos}</p>}
       <label>
         <Field type='checkbox' name='tos' />
         <span>Terms of Service</span>
       </label>
-      <button type='submit'>Submit</button>
+      <ButtonWrapper type='submit'>Submit</ButtonWrapper>
       <div>
         {users.map(user => (
           <ul>
