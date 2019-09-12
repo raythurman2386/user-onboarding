@@ -35,6 +35,14 @@ const Register = ({ errors, touched, status }) => {
         <span>Terms of Service</span>
       </label>
       <button type='submit'>Submit</button>
+      <div>
+        {users.map(user => (
+          <ul>
+            <li>{user.name}</li>
+            <li>{user.email}</li>
+          </ul>
+        ))}
+      </div>
     </Form>
   )
 }
