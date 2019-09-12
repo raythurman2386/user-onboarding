@@ -19,10 +19,15 @@ const StyledForm = styled(Form)`
 
 const StyledField = styled(Field)`
   width: 98%;
-  padding: 1rem 2.2rem;
+  padding: 0.5rem 1.2rem;
   border: none;
   margin: 1.25rem auto;
   box-shadow: 0 6px 6px #777;
+`
+
+const StyledP = styled.p`
+  margin: 0;
+  padding: 0;
 `
 
 const Register = ({ errors, touched, status }) => {
@@ -39,19 +44,21 @@ const Register = ({ errors, touched, status }) => {
   return (
     <StyledForm>
       {/* Custom Name Error */}
-      {touched.name && errors.name && <p>{errors.name}</p>}
+      {touched.name && errors.name && <StyledP>{errors.name}</StyledP>}
       <StyledField type='text' name='name' placeholder='Name' />
 
       {/* Custom Email Error */}
-      {touched.email && errors.email && <p>{errors.email}</p>}
+      {touched.email && errors.email && <StyledP>{errors.email}</StyledP>}
       <StyledField type='email' name='email' placeholder='Email' />
 
       {/* Custom PW Error */}
-      {touched.password && errors.password && <p>{errors.password}</p>}
+      {touched.password && errors.password && (
+        <StyledP>{errors.password}</StyledP>
+      )}
       <StyledField type='password' name='password' placeholder='Password' />
 
       {/* Custom TOS Error */}
-      {touched.tos && errors.tos && <p>{errors.tos}</p>}
+      {touched.tos && errors.tos && <StyledP>{errors.tos}</StyledP>}
       <label>
         <Field type='checkbox' name='tos' />
         <span>Terms of Service</span>
