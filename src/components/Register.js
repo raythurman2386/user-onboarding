@@ -4,6 +4,9 @@ import * as Yup from 'yup'
 import axios from 'axios'
 
 const Register = ({ errors, touched, status }) => {
+  // set up hooks to display data
+  const [users, setUsers] = useState([])
+
   return (
     <Form>
       {/* Custom Name Error */}
