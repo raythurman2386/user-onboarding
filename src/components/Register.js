@@ -3,6 +3,28 @@ import { Form, Field, withFormik } from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
+// Styled Components
+import styled from 'styled-components'
+
+// Styles
+const StyledForm = styled(Form)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  margin: auto;
+  padding: 4rem;
+`
+
+const StyledField = styled(Field)`
+  width: 98%;
+  padding: 1rem 2.2rem;
+  border: none;
+  margin: 1.25rem auto;
+  box-shadow: 0 6px 6px #777;
+`
+
 const Register = ({ errors, touched, status }) => {
   // set up hooks to display data
   const [users, setUsers] = useState([])
@@ -15,18 +37,18 @@ const Register = ({ errors, touched, status }) => {
   }, [status])
 
   return (
-    <Form>
+    <StyledForm>
       {/* Custom Name Error */}
       {touched.name && errors.name && <p>{errors.name}</p>}
-      <Field type='text' name='name' placeholder='Name' />
+      <StyledField type='text' name='name' placeholder='Name' />
 
       {/* Custom Email Error */}
       {touched.email && errors.email && <p>{errors.email}</p>}
-      <Field type='email' name='email' placeholder='Email' />
+      <StyledField type='email' name='email' placeholder='Email' />
 
       {/* Custom PW Error */}
       {touched.password && errors.password && <p>{errors.password}</p>}
-      <Field type='password' name='password' placeholder='Password' />
+      <StyledField type='password' name='password' placeholder='Password' />
 
       {/* Custom TOS Error */}
       {touched.tos && errors.tos && <p>{errors.tos}</p>}
@@ -43,7 +65,7 @@ const Register = ({ errors, touched, status }) => {
           </ul>
         ))}
       </div>
-    </Form>
+    </StyledForm>
   )
 }
 
