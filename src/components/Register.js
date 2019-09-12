@@ -7,6 +7,13 @@ const Register = ({ errors, touched, status }) => {
   // set up hooks to display data
   const [users, setUsers] = useState([])
 
+  // useEffect to update users
+  useEffect(() => {
+    if (status) {
+      setUsers([...users, status])
+    }
+  }, [status])
+
   return (
     <Form>
       {/* Custom Name Error */}
