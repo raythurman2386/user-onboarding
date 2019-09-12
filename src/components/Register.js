@@ -11,6 +11,8 @@ const Register = ({ errors, touched }) => {
 
       {touched.email && errors.email && <p>{errors.email}</p>}
       <Field type='email' name='email' placeholder='Email' />
+
+      {touched.password && errors.password && <p>{errors.password}</p>}
       <Field type='password' name='password' placeholder='Password' />
       <label>
         <Field type='checkbox' name='tos' />
