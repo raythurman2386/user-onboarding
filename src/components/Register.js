@@ -6,15 +6,19 @@ import axios from 'axios'
 const Register = ({ errors, touched }) => {
   return (
     <Form>
+      {/* Custom Name Error */}
       {touched.name && errors.name && <p>{errors.name}</p>}
       <Field type='text' name='name' placeholder='Name' />
 
+      {/* Custom Email Error */}
       {touched.email && errors.email && <p>{errors.email}</p>}
       <Field type='email' name='email' placeholder='Email' />
 
+      {/* Custom PW Error */}
       {touched.password && errors.password && <p>{errors.password}</p>}
       <Field type='password' name='password' placeholder='Password' />
 
+      {/* Custom TOS Error */}
       {touched.tos && errors.tos && <p>{errors.tos}</p>}
       <label>
         <Field type='checkbox' name='tos' />
