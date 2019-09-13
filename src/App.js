@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+
+// Styled Components
+import styled from 'styled-components'
+
+// import Register
+import Register from './components/Register'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <AppWrapper>
+      <Register />
+    </AppWrapper>
+  )
 }
 
-export default App;
+export default App
+
+const AppWrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  color: #fff;
+  background-color: #333;
+`
